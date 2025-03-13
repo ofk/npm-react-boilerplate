@@ -35,6 +35,9 @@
     "prepare": "husky",
     "test": "vitest run"
   },
+  "peerDependencies": {
+    "react": ">=18"
+  },
   "devDependencies": {
     "@ofk/eslint-config-recommend": "^7.0.0",
     "@types/react": "^19.0.10",
