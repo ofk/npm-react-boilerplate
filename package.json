@@ -5,8 +5,23 @@
   "license": "MIT",
   "author": "ofk (https://github.com/ofk/)",
   "type": "module",
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "tsup",
     "lint": "run-p lint:**",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
@@ -18,8 +33,10 @@
     "lint-fix:prettier-package-json": "prettier-package-json --write",
     "lint-fix:tsc": "run-s lint:tsc",
     "prepare": "husky",
+    "prepublishOnly": "run-s build",
     "test": "vitest run"
   },
+  "sideEffects": false,
   "devDependencies": {
     "@ofk/eslint-config-recommend": "^7.2.2",
     "eslint": "^9.24.0",
