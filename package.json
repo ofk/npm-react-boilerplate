@@ -4,12 +4,15 @@
   "description": "",
   "license": "MIT",
   "author": "ofk (https://github.com/ofk/)",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "lint": "run-p lint:**",
+    "lint:eslint": "eslint .",
     "lint:prettier": "prettier --check .",
     "lint:prettier-package-json": "prettier-package-json --list-different",
     "lint-fix": "run-s lint-fix:**",
+    "lint-fix:eslint": "eslint --fix .",
     "lint-fix:prettier": "prettier --write .",
     "lint-fix:prettier-package-json": "prettier-package-json --write",
     "test": "vitest run"
